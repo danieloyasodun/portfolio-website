@@ -378,8 +378,13 @@ article .icon {
 }
 
 img[alt="NBASnapshot"] {
-    height: 400px;
+    height: 300px;
     width: 200px;
+}
+
+img[alt="LinkUp"] {
+  height: 200px;
+  width: 400px;
 }
 
 .project-title {
