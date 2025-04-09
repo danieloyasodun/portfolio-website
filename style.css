@@ -377,14 +377,19 @@ article .icon {
   height: 90%;
 }
 
+img[alt="Graph"] {
+  height: 150px;
+  width: 200px;
+}
+
 img[alt="NBASnapshot"] {
-    height: 300px;
-    width: 200px;
+    height: 200px;
+    width: 150px;
 }
 
 img[alt="LinkUp"] {
-  height: 200px;
-  width: 400px;
+  height: 150px;
+  width: 250px;
 }
 
 .project-title {
