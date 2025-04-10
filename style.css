@@ -372,24 +372,24 @@ article .icon {
 }
 
 .project-img {
-  border-radius: 2rem;
+  border-radius: 1rem;
   width: 90%;
   height: 90%;
 }
 
 img[alt="Graph"] {
-  height: 150px;
-  width: 200px;
+  height: 250px;
+  width: 300px;
 }
 
 img[alt="NBASnapshot"] {
-    height: 200px;
-    width: 150px;
+    height: 250px;
+    width: 200px;
 }
 
 img[alt="LinkUp"] {
-  height: 150px;
-  width: 250px;
+  height: 250px;
+  width: 360px;
 }
 
 .project-title {
