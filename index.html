@@ -402,23 +402,53 @@
             padding: 20px 0;
         }
         
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .experience-timeline {
-                flex: 0 0 100%;
-                margin-bottom: 10px;
-                padding-right: 0;
-            }
-        }
+@media (max-width: 768px) {
+    /* Navigation adjustments */
+    nav {
+        position: relative; /* Changes from any fixed/absolute positioning */
+        width: 100%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+    
+    nav ul li {
+        margin: 8px 0;
+    }
+    
+    /* Content adjustments */
+    .about-content {
+        flex-direction: column;
+        padding: 20px 15px; /* Add some padding to prevent content touching screen edges */
+    }
+    
+    .experience-timeline {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+        padding-right: 0;
+    }
+    
+    /* General content adjustments for better readability */
+    main {
+        padding: 0 15px;
+    }
+    
+    h1, h2, h3 {
+        font-size: 95%; /* Slightly reduce heading sizes */
+    }
+    
+    p, li {
+        font-size: 14px; /* Ensure readable text size */
+    }
+    
+    /* Add space between sections */
+    section {
+        margin-bottom: 30px;
+    }
+}
     </style>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -429,7 +459,7 @@
         <div class="container">
             <h1>Daniel Oyasodun</h1>
             <p class="title">Software Engineer</p>
-            <p>Making it look easy</p>
+            <p>Making it look easy.</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/danieloyasodun" title="Send me an email"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/danieloyasodun"><i class="fab fa-github"></i></a>
@@ -662,6 +692,33 @@ problem-solving skills.</li>
                 >
                     <i class="fas fa-download"></i> Download Full Resume (PDF)
                 </a>
+            </div>
+
+            <div class="resume-preview">
+                <h3>Resume Overview</h3>
+                <p>Detail-oriented and technically skilled Computer Science student at NJIT with hands-on experience in software engineering, full-stack web development, and machine learning projects. Proficient in a wide range of programming languages and tools, with a strong foundation in algorithms, data analysis, and system design. Passionate about building impactful applications and helping others grow through code.</p>
+
+                <h4>Professional Experience</h4>
+
+                <div class="resume-item">
+                    <h5>Computer Science Tutor</h5>
+                    <p>New Jersey Institute of Technology | June 2023 – Aug. 2023</p>
+                    <ul>
+                        <li>Led Java & Python workshops for 35+ students, boosting assessment scores by 20% through personalized study plans and coding exercises.</li>
+                        <li>Developed interactive exercises to build student confidence and strengthen problem-solving skills.</li>
+                        <li>Created and shared coding resources, contributing to peer learning and academic performance.</li>
+                    </ul>
+                </div>
+
+                <div class="resume-item">
+                    <h5>AI Resume Builder – Developer</h5>
+                    <p>Group Project | Feb. 2025 – May 2025</p>
+                    <ul>
+                        <li>Developed an AI-powered resume web app with Django, React, and Supabase for customizable resume generation.</li>
+                        <li>Built RESTful APIs and integrated Auth0 for secure authentication.</li>
+                        <li>Deployed backend on Heroku and frontend on Vercel with support for Markdown, PDF, and HTML formats.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
