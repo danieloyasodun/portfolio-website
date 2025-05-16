@@ -1,318 +1,737 @@
 <!DOCTYPE html>
-<html land="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Daniel Oyasodun's Portfolio</title>
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="mediaqueries.css" />
-    </head>
-    <body>
-        <nav id="desktop-nav">
-            <div class="logo">Daniel Oyasodun</div>
-            <div>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Oyasodun - Portfolio</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #132257;    /* Tottenham Navy Blue */
+            --secondary-color: #001C58;  /* Darker Navy Blue */
+            --accent-color: #f5f5f5;     /* Off-white */
+            --text-color: #222222;       /* Almost Black */
+            --light-bg: #f5f5f5;         /* Off-white background */
+            --dark-bg: #132257;          /* Navy Blue background */
+            --highlight-color: #94CEF2;  /* Light Blue accent for highlights */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 80px 0 50px;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            padding: 15px;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--highlight-color);
+        }
+        
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        /* Education Section */
+        .education-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .education-date {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-wrap: wrap;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .experience-timeline {
+            flex: 0 0 150px;
+            padding-right: 20px;
+        }
+        
+        .experience-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+        }
+        
+        .experience-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .experience-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .experience-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .experience-highlights {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        
+        .experience-highlights li {
+            margin-bottom: 5px;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .skill-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-title {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .project-description {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .project-tag {
+            background-color: var(--light-bg);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        /* Resume Section */
+        .resume-download {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .resume-preview {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .experience-timeline {
+                flex: 0 0 100%;
+                margin-bottom: 10px;
+                padding-right: 0;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="home">
+        <div class="container">
+            <h1>Daniel Oyasodun</h1>
+            <p class="title">Software Engineer</p>
+            <p>Making it look easy</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/danieloyasodun" title="Send me an email"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/danieloyasodun"><i class="fab fa-github"></i></a>
+                <a href="mailto:do38@njit.edu"><i class="fas fa-envelope"></i></a>
             </div>
-        </nav>
-        <nav id="hamburger-nav">
-            <div class="logo">Daniel Oyasodun</div>
-            <div class="hamburger-menu">
-              <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-              </div>
-            </div>
-        </nav>
-        <section id="profile">
-            <div class="section_text">
-                <p class="section_text_p1">Hello, I'm</p>
-                <h1 class="title">Daniel Oyasodun</h1>
-                <p class="section_text_p2">Software Engineer <br/> CS @ NJIT</p>
-                <div class="btn-container">
-                    <button
-                        class="btn btn-color-2"
-                        onclick="window.open('./assets/Daniel_Oyasodun_Resume.pdf')"
-                    >
-                        Download Resume
-                    </button>
-                    <button class="btn btn-color-1" onclick="location.href='./#contact'">
-                        Contact Info
-                    </button>
-                </div>
-                <div id="socials-container">
-                    <img
-                        src="./assets/linkedin.png"
-                        alt="My LinkedIn profile"
-                        class="icon"
-                        onclick="location.href='https://www.linkedin.com/in/danieloyasodun'"
-                    />
-                    <img
-                        src="./assets/github.png"
-                        alt="My Github profile"
-                        class="icon"
-                        onclick="location.href='https://github.com/danieloyasodun'"
-                    />
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hi, I'm a Computer Science student at NJIT and an aspiring Software Engineer with a passion for building smart, user-focused solutions. I’m especially interested in the intersection of sports and technology, where I explore how data analytics and software development can enhance performance analysis and fan experiences.</p>
+                    <p>Outside of coding, I’m a dedicated fan of the Oklahoma City Thunder, Tottenham Hotspur, and the New England Patriots. Whether I’m debugging a project or cheering on my teams, I bring the same energy and curiosity to everything I do.</p>
+                    <p>I'm always looking for new opportunities to grow, collaborate, and create—feel free to explore my projects or get in touch!</p>
                 </div>
             </div>
-        </section>
-        <section id="about">
-            <p class="section_text_p1">Get To Know More</p>
-            <h1 class="title">About Me</h1>
-            <div class="section-container">
-                <div class="about-details-container">
-                    <div class="about-containers">
-                        <div class="details-container">
-                            <img
-                                src="./assets/education.png"
-                                alt="Education icon"
-                                class="icon"
-                            />
-                            <h3>Education</h3>
-                            <p>New Jersey Institute of Technology</p>
-                            <p>B.Sc. in Computer Science<br /> Sep. 2022 - Aug. 2025</p>
-                        </div>
-                    </div>
-                    <div class="text-container">
-                        I’m an aspiring Software Engineer and CS student at NJIT. A huge fan of the Oklahoma City Thunder, Tottenham Hotspur, and the New England Patriots, you’ll often find me watching them play when I’m not coding. I’m especially passionate about combining my love for sports and computer science—leveraging data analytics and software development to gain insights, enhance fan experiences, and improve performance analysis in sports.
-                    </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #f0f4f8;">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-timeline">
+                    <span class="experience-date">June 2023 - August 2023</span>
                 </div>
-            </div>
-            <img
-                src="./assets/arrow.png"
-                alt="Arrow icon"
-                class="icon arrow"
-                onclick="location.href='./#experience'"
-            />
-        </section>
-        <section id="experience">
-            <p class="section_text_p1">Explore My</p>
-            <h1 class="title">Experience</h1>
-            <div class="experience-details-container">
-                <div class="about-containers">
-                    <div class="details-container">
-                        <h2 class="experience-sub-title">Work Experience</h2>
-                        <div class="article-container">
-                            <article>
-                                <img
-                                    src="./assets/njit.png"
-                                    alt="Experience icon"
-                                    class="logo"
-                                />
-                                <div>
-                                    <h3>Computer Science Tutor</h3>
-                                    <p>NJIT</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="details-container">
-                        <h2 class="experience-sub-title">Skills</h2>
-                        <div class="article-container">
-                            <article>
-                                <img
-                                    src="./assets/checkmark.png"
-                                    alt="Experience icon"
-                                    class="icon"
-                                />
-                                <div>
-                                    <h3>Python</h3>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img
-                                    src="./assets/checkmark.png"
-                                    alt="Experience icon"
-                                    class="icon"
-                                />
-                                <div>
-                                    <h3>React</h3>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img
-                                    src="./assets/checkmark.png"
-                                    alt="Experience icon"
-                                    class="icon"
-                                />
-                                <div>
-                                    <h3>C</h3>
-                                    <p>Intermediate</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img
-                                    src="./assets/checkmark.png"
-                                    alt="Experience icon"
-                                    class="icon"
-                                />
-                                <div>
-                                    <h3>SQL</h3>
-                                    <p>Intermediate</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img
-                                    src="./assets/checkmark.png"
-                                    alt="Experience icon"
-                                    class="icon"
-                                />
-                                <div>
-                                    <h3>R</h3>
-                                    <p>Intermediate</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img
-                                    src="./assets/checkmark.png"
-                                    alt="Experience icon"
-                                    class="icon"
-                                />
-                                <div>
-                                    <h3>Java</h3>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <img
-                src="./assets/arrow.png"
-                alt="Arrow icon"
-                class="icon arrow"
-                onclick="location.href='./#projects'"
-            />
-        </section>
-        <section id="projects">
-            <p class="section_text_p1">Browse My Recent</p>
-            <h1 class="title">Projects</h1>
-            <div class="experience-details-container">
-                <div class="about-containers">
-                    <div class="details-container color-container">
-                        <div class="article-container">
-                            <img
-                                src="./assets/big5_all_successful_takeons_vs_sca_top15.png"
-                                alt="Graph"
-                                class="project-img"
-                            />
-                        </div>
-                        <h2 class="experience-sub-title project-title">Sports Data Visualizations</h2>
-                        <div class="btn-container">
-                            <button
-                                class="btn btn-color-2 project-btn"
-                                onclick="location.href='https://github.com/danieloyasodun/sports-data-visualization'"
-                            >
-                                Github
-                            </button>
-                        </div>
-                    </div>
-                    <div class="details-container color-container">
-                        <div class="article-container">
-                            <img
-                                src="./assets/NBASnapshot.png"
-                                alt="NBASnapshot"
-                                class="project-img"
-                            />
-                        </div>
-                        <h2 class="experience-sub-title project-title">NBA Snapshot</h2>
-                        <div class="btn-container">
-                            <button
-                                class="btn btn-color-2 project-btn"
-                                onclick="location.href='https://github.com/danieloyasodun/NBASnapshot'"
-                            >
-                                Github
-                            </button>
-                            <button
-                                class="btn btn-color-2 project-btn"
-                                onclick="location.href='https://www.youtube.com/shorts/arp9LDqFtoA'"
-                            >
-                                Live Demo
-                            </button>
-                        </div>
-                    </div>
-                    <div class="details-container color-container">
-                        <div class="article-container">
-                            <img
-                                src="./assets/linkup.png"
-                                alt="LinkUp"
-                                class="project-img"
-                            />
-                        </div>
-                        <h2 class="experience-sub-title project-title">LinkUp</h2>
-                        <div class="btn-container">
-                            <button
-                                class="btn btn-color-2 project-btn"
-                                onclick="location.href='https://github.com/danieloyasodun/linkup'"
-                            >
-                                Github
-                            </button>
-                            <button
-                                class="btn btn-color-2 project-btn"
-                                onclick="location.href='https://linkup-d9aqhgfow-danieloyasoduns-projects.vercel.app/'"
-                            >
-                                Live Demo
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <img
-                src="./assets/arrow.png"
-                alt="Arrow icon"
-                class="icon arrow"
-                onclick="location.href='./#contact'"
-            />
-        </section>
-        <section id="contact">
-            <p class="section_text_p1">Get in Touch</p>
-            <h1 class="title">Contact Me</h1>
-            <div class="contact-info-upper-container">
-                <div class="contact-info-container">
-                    <img
-                        src="./assets/email.png"
-                        alt="Email icon"
-                        class="icon contact-icon email-icon"
-                    />
-                    <p><a href="mailto:do38@njit.edu">do38@njit.edu</a></p>
-                </div>
-                <div class="contact-info-container">
-                    <img
-                        src="./assets/linkedin.png"
-                        alt="LinkedIn icon"
-                        class="icon contact-icon"
-                    />
-                    <p><a href="https://www.linkedin.com/in/danieloyasodun">LinkedIn</a></p>
-                </div>
-            </div>
-        </section>
-        <footer>
-            <nav>
-                <div class="nav-links-container">
-                    <ul class="nav-links">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                <div class="experience-content">
+                    <h3>Computer Science Tutor </h3>
+                    <h4>New Jersey Institute of Technology </h4>
+                    <p>Provided personalized tutoring in Java and Python to over 35 students, designing tailored study plans and coding exercises that improved assessment scores by 20% and enhanced students’ problem-solving skills and confidence.</p>
+                    <ul class="experience-highlights">
+                        <li>Led Java & Python workshops for 35+ students, boosting assessment scores by 20% through personalized study
+plans and coding exercises.</li>
+                        <li>Developed tailored study plans and interactive coding exercises, strengthening students’ confidence and
+problem-solving skills.</li>
                     </ul>
                 </div>
-            </nav>
-            <p>Copyright &#169; 2025 Daniel Oyasodun. All Rights Reserved.</p>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background-color: #f0f4f8;">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <h3>Bachelor of Science in Computer Science </h3>
+                <p class="education-date">2022-2025</p>
+                <p><strong>New Jersey Institute of Technology</strong></p>
+                <p>Completed core courses in data structures, operating systems, computer organization, and databases. Gained hands-on experience through programming practicum and software engineering projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Java, Python, C / C++, C#, Kotlin, JavaScript, Bash, HTML, XML, R, TypeScript</li>
+                        <li>Pandas, NumPy, Matplotlib, Seaborn, Plotly, Tableau</li>
+                        <li>Windows, Linux, Unix, Android</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Django, React, Next.js, Git, Docker, AWS</li>
+                        <li>PostgreSQL, MongoDB, DuckDB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background-color: #f0f4f8;">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">ShotSense — ML-Based Football Analytics App</h3>
+                        <p class="project-description">
+                            Built an interactive web app simulating football shots with expected goals (xG) values using a custom ML model trained on historical match data. Developed frontend with Next.js & D3.js, backend with FastAPI & AWS Lambda for real-time predictions.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">AWS Lambda</span>
+                        </div>
+                        <a href="https://github.com/danieloyasodun/xg-shot-predictor" class="project-link" target="_blank" rel="noopener">GitHub Repo</a>
+                        <a href="https://xg-shot-predictor.vercel.app/" class="project-link" target="_blank" rel="noopener">Live Site</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">AI Resume Builder — Job-Aware Resume Platform</h3>
+                        <p class="project-description">
+                            Developed a full-stack web app for AI-powered resume generation with editing, formatting, and storage features. Designed RESTful APIs, secured authentication with Auth0, and deployed on Heroku and Vercel.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Auth0</span>
+                        </div>
+                        <a href="https://github.com/danieloyasodun/Byte-CS490" class="project-link" target="_blank" rel="noopener">GitHub Repo</a>
+                        <a href="https://byte-cs-490.vercel.app/" class="project-link" target="_blank" rel="noopener">Live Site</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">Sports Data Visualization — Data Analytics for Sports Insights</h3>
+                        <p class="project-description">
+                            Created data visualizations in R and Python analyzing NBA, EPL, and more. Developed shot charts, heatmaps, and performance graphics to extract actionable sports insights.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">R</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Tableau</span>
+                        </div>
+                        <a href="https://github.com/danieloyasodun/sports-data-visualization" class="project-link" target="_blank" rel="noopener">GitHub Repo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">LinkUp — Full-Stack Social App</h3>
+                        <p class="project-description">
+                            Developed a full-stack social media app with real-time posts, media uploads, and secure authentication via Clerk. Implemented SSR, lazy loading, and seamless media delivery with Uploadthing.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">PostgreSQL</span>
+                        </div>
+                        <a href="https://github.com/danieloyasodun/linkup" class="project-link" target="_blank" rel="noopener">GitHub Repo</a>
+                        <a href="https://linkup-k4cu8zdgp-danieloyasoduns-projects.vercel.app" class="project-link" target="_blank" rel="noopener">Live Site</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">NBA Snapshot — Android NBA Score Tracker</h3>
+                        <p class="project-description">
+                            Designed an Android app in Kotlin for real-time NBA scores using ESPN’s API, with offline caching via Room DB and smooth background tasks using Kotlin coroutines.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Kotlin</span>
+                            <span class="project-tag">Android</span>
+                            <span class="project-tag">Room DB</span>
+                        </div>
+                        <a href="https://github.com/danieloyasodun/NBASnapShot" class="project-link" target="_blank" rel="noopener">GitHub Repo</a>
+                        <a href="https://youtube.com/shorts/arp9LDqFtoA?feature=share" class="project-link" target="_blank" rel="noopener">Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">Simple Pascal-Like Compiler — Custom Language Interpreter</h3>
+                        <p class="project-description">
+                            Built a compiler with lexer, recursive-descent parser, and interpreter for a Pascal-like language. Applied compiler theory to tokenize, parse, and execute code efficiently.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">C++</span>
+                            <span class="project-tag">Compiler Design</span>
+                            <span class="project-tag">Language Interpreter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">Fighting Game</h3>
+                        <p class="project-description">
+                            Developed a 2D fighting game using HTML5 Canvas and JavaScript, featuring collision detection, physics-based animations, and smooth character movements. Applied Agile development with sprint-based feature releases and designed intuitive gameplay for a seamless experience.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Game Dev</span>
+                        </div>
+                        <a href="https://github.com/danieloyasodun/fighting-game" class="project-link" target="_blank" rel="noopener">GitHub Repo</a>
+                        <a href="https://daniel-fighting-game.netlify.app/" class="project-link" target="_blank" rel="noopener">Live Game</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <h2 class="section-title">Resume</h2>
+            
+            <div class="resume-download">
+                <a 
+                    href="./assets/Daniel_Oyasodun_Resume.pdf" 
+                    class="download-btn" 
+                    target="_blank" 
+                    rel="noopener"
+                >
+                    <i class="fas fa-download"></i> Download Full Resume (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f0f4f8;">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Daniel Oyasodun. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript for the navigation highlighting -->
+    <script>
+        // Highlight active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if(window.pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
