@@ -138,6 +138,22 @@
             flex: 1;
             min-width: 300px;
         }
+
+        .trophies {
+          display: flex;
+          gap: 2rem;       /* space between trophies */
+          flex-wrap: wrap;  /* allows wrapping on small screens */
+        }
+        
+        .trophy {
+          background-color: #f4f4f4;
+          padding: 1rem;
+          border-radius: 8px;
+          flex: 1 1 300px;  /* grow/shrink with minimum width */
+          text-align: center;
+          white-space: pre; /* preserves ASCII formatting */
+        }
+
         
         /* Education Section */
         .education-item {
@@ -492,37 +508,43 @@
                     <p>Outside of coding, I’m a dedicated fan of the Oklahoma City Thunder, Tottenham Hotspur, and the New England Patriots. Whether I’m debugging a project or cheering on my teams, I bring the same energy and curiosity to everything I do.</p>
                     <p>I'm always looking for new opportunities to grow, collaborate, and create—feel free to explore my projects or get in touch!</p>
                 </div>
+            </div>
+            <div class="trophies">
+              <div class="trophy">
+                <h4>2024-2025 Europa League Champions</h4>
+                <p>Tottenham Hotspur</p>
                 <pre>
-                    2024-2025 Europa League Champions
-                    Tottenham Hotspur
-                    
-                     .·´|‾|`·.
-                    \   |O|   /
-                     \  | |  /
-                      \ | | /
-                       \| |/
-                        | |
-                       /oOo\
-                      /\/V\/\
-                     / /\|/\ \
-                     ‾‾‾‾‾‾‾‾‾‾
-                    
-                    2025 NBA Champions
-                    Oklahoma City Thunder
-                    
-                           .–––.
-                          /.| / \
-                         | /`/./ |
-                          \ / |`/
-                         __`–––´_
-                        |\ \/ / /
-                        | \/\/ /
-                        |\/\/\/
-                        |/\/\/
-                        |\/\/
-                      (_|/\/__)
-                    (__________)
-                    </pre>
+             .·´|‾|`·.
+            \   |O|   /
+             \  | |  /
+              \ | | /
+               \| |/
+                | |
+               /oOo\
+              /\/V\/\
+             / /\|/\ \
+             ‾‾‾‾‾‾‾‾‾‾
+                </pre>
+              </div>
+            
+              <div class="trophy">
+                <h4>2025 NBA Champions</h4>
+                <p>Oklahoma City Thunder</p>
+                <pre>
+                   .–––.
+                  /.| / \
+                 | /`/./ |
+                  \ / |`/
+                 __`–––´_
+                |\ \/ / /
+                | \/\/ /
+                |\/\/\/
+                |/\/\/
+                |\/\/
+              (_|/\/__)
+            (__________)
+                </pre>
+              </div>
             </div>
         </div>
     </section>
