@@ -16,6 +16,7 @@
         :root {
             --primary: #132257;
             --accent: #6366f1;
+            --clinical: #2dd4bf;
             --dark: #0f172a;
             --light: #f8fafc;
             --gray: #64748b;
@@ -321,6 +322,19 @@
             background: rgba(255, 255, 255, 0.08);
         }
         
+        .experience-card.clinical {
+            border-left-color: var(--clinical);
+        }
+        
+        .experience-card.clinical:hover {
+            border-color: var(--clinical);
+        }
+        
+        .experience-card.clinical .experience-date {
+            background: rgba(45, 212, 191, 0.15);
+            color: var(--clinical);
+        }
+        
         .experience-header {
             display: flex;
             justify-content: space-between;
@@ -351,6 +365,10 @@
             font-weight: 600;
             margin-bottom: 1rem;
             font-size: 1.1rem;
+        }
+        
+        .experience-card.clinical .experience-company {
+            color: var(--clinical);
         }
         
         .experience-description {
@@ -385,6 +403,11 @@
             border-color: var(--accent);
         }
         
+        .project-card.clinical:hover {
+            box-shadow: 0 20px 40px rgba(45, 212, 191, 0.2);
+            border-color: var(--clinical);
+        }
+        
         .project-image {
             height: 200px;
             background: var(--gradient);
@@ -393,6 +416,10 @@
             justify-content: center;
             font-size: 3rem;
             color: white;
+        }
+        
+        .project-card.clinical .project-image {
+            background: linear-gradient(135deg, #0f766e 0%, #134e4a 100%);
         }
         
         .project-content {
@@ -428,6 +455,11 @@
             font-weight: 500;
         }
         
+        .tag-clinical {
+            background: rgba(45, 212, 191, 0.12);
+            color: #0f766e;
+        }
+        
         .project-links {
             display: flex;
             gap: 1rem;
@@ -442,6 +474,20 @@
         
         .project-link:hover {
             color: var(--primary);
+        }
+        
+        .project-card.clinical .project-link {
+            color: #0f766e;
+        }
+        
+        .project-card.clinical .project-link:hover {
+            color: var(--primary);
+        }
+        
+        .project-note {
+            color: var(--gray);
+            font-size: 0.85rem;
+            font-style: italic;
         }
         
         /* Skills Section */
@@ -805,7 +851,8 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Daniel Oyasodun</h1>
-                <p>Computer Science Graduate & Software Engineer building impactful applications at the intersection of backend development, data analytics, and modern web technologies.</p>
+                <p>Clinical Database Developer | Software Engineer | Data Analytics</p>
+                <p>Building reliable clinical data systems, automating validation workflows, and developing software that transforms complex data into actionable insights.</p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">View My Work →</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -835,8 +882,11 @@
                         <div class="section-label">About Me</div>
                         <h2 class="section-title">Building the Future, One Line at a Time</h2>
                     </div>
-                    <p>I'm a recent Computer Science graduate from NJIT with a passion for building impactful software and leveraging data to drive insights. I enjoy working at the intersection of technology and analytics, exploring how software development and data analysis can enhance performance, optimize decision-making, and create engaging user experiences.</p>
-                    <p>Outside of coding and data, I'm a dedicated fan of the Oklahoma City Thunder, Tottenham Hotspur, and the New England Patriots. Whether debugging a project or cheering on my teams, I bring curiosity, energy, and problem-solving to everything I do.</p>
+                    <p> I'm an Associate Clinical Database Developer at Regeneron Pharmaceuticals and a Computer Science graduate from NJIT with a passion for building reliable software and high-quality clinical data systems. </p>
+                    <p>My work focuses on developing and validating clinical databases in Medidata Rave EDC, designing eCRFs, implementing edit checks with Medidata Custom Functions, supporting UAT, and ensuring clinical trial data meets regulatory and quality standards. I also enjoy applying Python, R, SQL, and SAS to automate workflows, validate data, and solve analytical problems.</p>
+                    <p>Outside of clinical development, I enjoy building full-stack applications, experimenting with AI-powered tools, and working on sports analytics projects that combine machine learning, data engineering, and visualization.</p>
+                    <p>Away from the keyboard, you'll usually find me watching the Oklahoma City Thunder, Tottenham Hotspur, or the New England Patriots.</p>
+
                 </div>
             </div>
         </div>
@@ -848,9 +898,20 @@
             <div class="section-header">
                 <div class="section-label">My Journey</div>
                 <h2 class="section-title">Professional Experience</h2>
-                <p class="section-subtitle">Building impactful solutions across backend engineering, data analysis, and education</p>
+                <p class="section-subtitle">Building reliable clinical data systems while applying software engineering and analytics to accelerate clinical research.</p>
             </div>
             <div class="experience-grid">
+                <div class="experience-card clinical">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Associate Clinical Database Developer</h3>
+                            <p class="experience-company">Regeneron Pharmaceuticals</p>
+                        </div>
+                        <div class="experience-date">February 2026 - Present</div>
+                    </div>
+                    <p class="experience-description">Build and validate 500+ clinical edit checks across 5 studies in Medidata Rave Architect using C#/Medidata Custom Functions, partnering with CRO teams to translate protocol requirements into production-ready validation logic. Design and configure electronic Case Report Forms (eCRFs) and clinical databases in Medidata Rave EDC, driving study startup timelines and ensuring accurate, protocol-compliant data collection. Manage post-production database changes via Rave Amendment Manager (Migrations, Quick Publish), support RTSM/IRT setup and AE/SAE alert configuration, and lead User Acceptance Testing (UAT) efforts to validate edit checks and data workflows ahead of study go-live.</p>
+                </div>
+
                 <div class="experience-card">
                     <div class="experience-header">
                         <div>
@@ -1016,9 +1077,54 @@
             <div class="section-header">
                 <div class="section-label">Portfolio</div>
                 <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">A collection of my most impactful work spanning full-stack development, API design, and data analytics</p>
+                <p class="section-subtitle">A collection of my most impactful work spanning clinical data systems, full-stack development, API design, and data analytics</p>
             </div>
             <div class="projects-grid">
+                <div class="project-card clinical">
+                    <div class="project-image">🧬</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Clinical Trial SDTM/ADaM Mapping</h3>
+                        <p class="project-description">Mapped raw clinical trial data to SDTM domains (DM, AE, VS) and derived an ADaM ADSL dataset following the CDISC SDTM Implementation Guide and controlled terminology, using CDISC Pilot Project data.</p>
+                        <div class="project-tags">
+                            <span class="tag tag-clinical">SAS</span>
+                            <span class="tag tag-clinical">Python</span>
+                            <span class="tag tag-clinical">CDISC SDTM/ADaM</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/danieloyasodun/sdtm-adam-mapping" target="_blank" class="project-link">View Code →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card clinical">
+                    <div class="project-image">🔍</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Clinical Study Diagnostics Engine (TrialGrid Recreation)</h3>
+                        <p class="project-description">Rebuilt the core functionality of TrialGrid's EDC study validation engine, implementing 128 diagnostic rules as individual Python functions across categories like Build Quality, Naming, and RaveX compatibility, with the Claude API parsing Architect Loader Spreadsheet inputs into structured data for rule evaluation.</p>
+                        <div class="project-tags">
+                            <span class="tag tag-clinical">Python</span>
+                            <span class="tag tag-clinical">Claude API</span>
+                            <span class="tag tag-clinical">Medidata Rave</span>
+                        </div>
+                        <p class="project-note">Built as an in-house project — code not publicly available</p>
+                    </div>
+                </div>
+
+                <div class="project-card clinical">
+                    <div class="project-image">✅</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Clinical Database Edit Check Validation</h3>
+                        <p class="project-description">Authored a Data Validation Specification (DVS) with 15 edit check rules for a mock clinical protocol and implemented executable validation logic in SQL against synthetic study data, including UAT-style test case documentation.</p>
+                        <div class="project-tags">
+                            <span class="tag tag-clinical">SQL</span>
+                            <span class="tag tag-clinical">DVS Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/danieloyasodun/REPLACE-WITH-REPO-NAME" target="_blank" class="project-link">View Code →</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <div class="project-image">⚽</div>
                     <div class="project-content">
